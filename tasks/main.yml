@@ -23,6 +23,9 @@
   when: ansible_os_family == 'Debian'
   tags: dhcp
 
+- include_tasks: sysconfig-fix.yml
+  when: ansible_os_family == 'Suse'
+
 - name: Install custom includes
   template:
     src: "{{ item.0 }}"

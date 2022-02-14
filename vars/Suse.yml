@@ -1,0 +1,11 @@
+# roles/dhcp/vars/SUSE.yml
+---
+
+dhcp_packages:
+  - dhcp-server
+
+dhcp_config_dir: /etc/dhcp
+
+dhcp_config: /etc/dhcpd.conf
+
+dhcp_service: dhcpd

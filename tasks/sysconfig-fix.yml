@@ -1,0 +1,11 @@
+# roles/dhcp/tasks/sysconfig-fix.yml
+# This playbook adjusts a required dhcp package "sysconfig" file,
+# specific to suse-like installs
+---
+
+- name: Defaults fix | Set a default listening interface
+  lineinfile:
+    dest: /etc/sysconfig/dhcpd
+    line: 'DHCPD_INTERFACE="{{ dhcp_interfaces | default(ansible_default_ipv4.interface) }}"'
+    regexp: '^DHCPD_INTERFACE='
+  tags: dhcp
